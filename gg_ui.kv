@@ -1,0 +1,206 @@
+MDScreenManager:
+    WelcomeScreen:
+    LoginScreen:
+    RegisterScreen:
+    DashboardScreen:
+    ChallengesScreen:
+    VendorsScreen:
+    EventsScreen:
+    ProfileScreen:
+
+<WelcomeScreen>:
+    name: "welcome"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            title: "GoGreen"
+            pos_hint: {"top": 1}
+        MDLabel:
+            text: "Take care of trees was never so easy!"
+            font_style: "H5"
+            halign: "center"
+        MDRaisedButton:
+            text: "Get Started"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "login"
+
+<LoginScreen>:
+    name: "login"
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: dp(20)
+        spacing: dp(15)
+        MDTopAppBar:
+            title: "Login"
+            pos_hint: {"top": 1}
+        MDTextField:
+            id: email
+            hint_text: "Enter your email"
+            icon_right: "email"
+        MDTextField:
+            id: password
+            hint_text: "Enter your password"
+            password: True
+            icon_right: "lock"
+        MDRaisedButton:
+            text: "Login"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "dashboard"
+        MDTextButton:
+            text: "Don't have an account? Register"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "register"
+
+<RegisterScreen>:
+    name: "register"
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: dp(20)
+        spacing: dp(15)
+        MDTopAppBar:
+            title: "Register"
+            pos_hint: {"top": 1}
+        MDTextField:
+            id: new_email
+            hint_text: "Enter your email"
+            icon_right: "email"
+        MDTextField:
+            id: username
+            hint_text: "Choose a username"
+            icon_right: "account"
+        MDTextField:
+            id: new_password
+            hint_text: "Enter your password"
+            password: True
+            icon_right: "lock"
+        MDCheckbox:
+            id: terms
+            size_hint_x: None
+            width: dp(30)
+        MDLabel:
+            text: "I accept the Terms & Conditions"
+            font_style: "Caption"
+        MDRaisedButton:
+            text: "Sign Up"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "dashboard"
+        MDTextButton:
+            text: "Already have an account? Login"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "login"
+
+<DashboardScreen>:
+    name: "dashboard"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            title: "Dashboard"
+            pos_hint: {"top": 1}
+        ScrollView:
+            MDGridLayout:
+                cols: 1
+                spacing: dp(10)
+                padding: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+                MDLabel:
+                    text: "Hello, CareTaker33!"
+                    font_style: "H5"
+                    halign: "center"
+                MDCard:
+                    size_hint: None, None
+                    size: "250dp", "120dp"
+                    elevation: 8
+                    padding: dp(10)
+                    MDLabel:
+                        text: "Challenge Points: 1050"
+                        font_style: "H6"
+                        halign: "center"
+                MDRaisedButton:
+                    text: "Challenges"
+                    pos_hint: {"center_x": 0.5}
+                    on_release: app.root.current = "challenges"
+                MDRaisedButton:
+                    text: "Vendors"
+                    pos_hint: {"center_x": 0.5}
+                    on_release: app.root.current = "vendors"
+                MDRaisedButton:
+                    text: "Events"
+                    pos_hint: {"center_x": 0.5}
+                    on_release: app.root.current = "events"
+                MDRaisedButton:
+                    text: "Profile"
+                    pos_hint: {"center_x": 0.5}
+                    on_release: app.root.current = "profile"
+
+<ChallengesScreen>:
+    name: "challenges"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            title: "Challenges"
+            pos_hint: {"top": 1}
+        ScrollView:
+            MDList:
+                OneLineListItem:
+                    text: "Recycle 10 Plastic Bottles"
+                OneLineListItem:
+                    text: "Harvest Rainwater (10L)"
+                OneLineListItem:
+                    text: "Plant 5 Trees"
+        MDRaisedButton:
+            text: "Back to Dashboard"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "dashboard"
+
+<VendorsScreen>:
+    name: "vendors"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            title: "Vendors"
+            pos_hint: {"top": 1}
+        ScrollView:
+            MDList:
+                OneLineListItem:
+                    text: "Shailesh Shete (Mumbai)"
+                OneLineListItem:
+                    text: "Hansen Reddy (Thane)"
+        MDRaisedButton:
+            text: "Back to Dashboard"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "dashboard"
+
+<EventsScreen>:
+    name: "events"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            title: "Events"
+            pos_hint: {"top": 1}
+        ScrollView:
+            MDList:
+                OneLineListItem:
+                    text: "Clean Tashkent Show (April 13-15)"
+                OneLineListItem:
+                    text: "Hashar at National Tashkent Park (July 1)"
+        MDRaisedButton:
+            text: "Back to Dashboard"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "dashboard"
+
+<ProfileScreen>:
+    name: "profile"
+    MDBoxLayout:
+        orientation: "vertical"
+        MDTopAppBar:
+            title: "My Profile"
+            pos_hint: {"top": 1}
+        MDLabel:
+            text: "Challenge Points: 1050"
+            font_style: "H6"
+            halign: "center"
+        MDRaisedButton:
+            text: "Sign Out"
+            pos_hint: {"center_x": 0.5}
+            on_release: app.root.current = "welcome"
